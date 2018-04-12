@@ -1,19 +1,24 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-
+import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
+const API_KEY = 'AIzaSyAR__yp368axr1-DO2SycYrn2HbXVPjcgY';
 
-const API_KEY = 'AIzaSyDF9zOIKzOW6sHeSx7FvIK0nMWg7ZFB0OI';
+YTSearch({key: API_KEY, term:'suftboards'}, function(data){
+	console.log(data);
+});
 
 
-// Create a new component
-const App = () => {
-	return (
-		<div>
+class App extends Component{
+	render(){
+		return(
+			<div>
 				<SearchBar/>
-		</div>
-	);
+			</div>
+		);
+	}
 }
+
 
 
 ReactDOM.render(<App/>, document.getElementById('root'));
